@@ -77,7 +77,7 @@ std::string CPU ::getDisplayString() const
         setence += "[Core n°" + std::to_string(i) + "..........."+ std::to_string(num) + "%]\n";
     }
 
-    return "Model name :" + model + "\n" + "frequency usage: " + std::to_string(frequency) + "%\n" + setence;
+    return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + "%\n" + setence;
 }
 
 std::string CPU ::getGraphicString() const
@@ -85,8 +85,10 @@ std::string CPU ::getGraphicString() const
     std:: string setence = "";
     int i = 0;
     for (auto const & num: cores_usage) {
-        i++;
+        if (i == 7)
+            break;
         setence += "[Core n°" + std::to_string(i) + "..........."+ std::to_string(num) + "%]\n";
+        i++;
     }
-    return "Model name :" + model + "\n" + "frequency usage: " + std::to_string(frequency) + "%\n" + setence;
+    return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + "%\n" + setence;
 }

@@ -28,15 +28,22 @@ void SFMLDisplay::render(const std::vector<std::unique_ptr<IModule>>& modules)
     }
     window.clear(sf::Color(20, 20, 20));
     float yOffset = 80.f;
+    float xOffset = 140.f;
     afficher(window, {0, 0}, {0.64, 0.6});
     int i = 0;
     for (const auto& module : modules) {
+        i++;
         sf::Text text(module->getGraphicString(), font, 20);
         text.setFillColor(sf::Color(255, 255, 255));
-        text.setPosition(140.f, yOffset);
+        text.setPosition(xOffset, yOffset);
         window.draw(text);
-        yOffset += 30.f;
-        break;
+        yOffset += 250.f;
+        if (i == 4) {
+            yOffset = 80.f;
+            xOffset = 400;
+        }
+        if (i == 5)
+            break;
     }
     window.display();
 }
