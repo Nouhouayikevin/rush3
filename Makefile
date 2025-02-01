@@ -24,10 +24,12 @@ $(NAME): $(OBJ)
 
 clean:
 	find . -type f -name '*.o' -delete
+	find . -type f -name 'a.out' -delete
 	find . -type f -name '*.gcno' -delete
 	find . -type f -name '*.gcda' -delete
 	find . -type f -name '*.txt' -delete
 	find . -type f -name 'unit_tests' -delete
+	find . -type f -name 'coding-style-reports.log' -delete
 
 fclean: clean
 	rm -f $(NAME)
