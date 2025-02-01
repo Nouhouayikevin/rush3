@@ -23,6 +23,7 @@ private:
     size_t getRessources(std::string& value);
 
 public:
+    RamModule() : _memTotal(0), _memFree(0), _memAvailable(0), _buffers(0), _cached(0) {}
     void init();
     void update();
     std::string getDisplayString() const;

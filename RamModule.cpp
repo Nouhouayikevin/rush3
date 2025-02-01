@@ -38,15 +38,15 @@ void RamModule::update() {
 std::string RamModule::getDisplayString() const {
     return  "RAM Total: " + std::to_string(_memTotal / MBYTES) + " MB\n" +
             "Free: " + std::to_string(_memFree / MBYTES) + " MB\n" +
-            "MemAvailable:  " + std::to_string(_memAvailable / MBYTES) + " MB\n" +
-            "Buffers: " + std::to_string(_buffers / MBYTES) + " MB\n" +
-            "Cached: " + std::to_string(_buffers / MBYTES) + " MB\n";
+           "MemAvailable: " + std::to_string(_memAvailable / MBYTES) + " MB\n" +
+           "Buffers: " + std::to_string(_buffers / MBYTES) + " MB\n" +
+           "Cached: " + std::to_string(_cached / MBYTES) + " MB\n";
 }
 
 std::string RamModule::getGraphicString() const {
     return  "RAM Total: " + std::to_string(_memTotal / MBYTES) + " MB\n" +
             "Free: " + std::to_string(_memFree / MBYTES) + " MB\n" +
-            "MemAvailable:  " + std::to_string(_memAvailable / MBYTES) + " MB\n" +
+            "MemAvailable: " + std::to_string(_memAvailable / MBYTES) + " MB\n" +
             "Buffers: " + std::to_string(_buffers / MBYTES) + " MB\n" +
-            "Cached: " + std::to_string(_buffers / MBYTES) + " MB\n";
+            "Cached: " + std::to_string(_cached / MBYTES) + " MB\n";
 }
