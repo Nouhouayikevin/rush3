@@ -1,0 +1,8 @@
+.vscode
+*.o
+a.out
+coding-style-reports.log
+*vgcore*
+*.gcda
+*.gcno
+main.cpp
