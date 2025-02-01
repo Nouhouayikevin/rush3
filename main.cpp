@@ -13,6 +13,7 @@
 #include "RamModule.hpp"
 #include "os_kernel.hpp"
 #include "CPU.hpp"
+#include "Battery.hpp"
 #include <string.h>
 
 int main(int argc, char *argv[]) {
@@ -22,6 +23,7 @@ int main(int argc, char *argv[]) {
     m.addModule(new Hostname());
     m.addModule(new OsKernel());
     m.addModule(new CPU());
+    m.addModule(new Battery());
     
     if (argc > 1 && strcmp(argv[1], "text") == 0) {
        m.setDisplay(Monitor::mydisplayMode::NCURSES);

@@ -5,8 +5,8 @@
 ** file
 */
 
-#ifndef   ICPU_H
-    #define ICPU_H
+#ifndef   IBAT_H
+    #define IBAT_H
 #include "IModule.hpp"
 #include <cstddef>
 #include <fstream>
