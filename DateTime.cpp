@@ -29,12 +29,4 @@ std::string DateTime::getGraphicString() const
     return currentTime;
 }
 
-int main()
-{
-    DateTime i;
-    std::string h ;
-    i.init();
-    h = i.getDisplayString();
-    std::cout << h << "\n";
-}
     
