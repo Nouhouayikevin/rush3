@@ -13,23 +13,13 @@ private:
     std::string currentTime;
 
 public:
-    DateTime();
-    ~DateTime();
-    void init() override;
-    void update() override;
-    std::string getDisplayString() const override;
-    std::string getGraphicString() const override;
+    DateTime(){};
+    ~DateTime(){};
+    void init() ;
+    void update() ;
+    std::string getDisplayString() const ;
+    std::string getGraphicString() const ;
 
 };
-
-DateTime::DateTime()
-{
-
-}
-
-DateTime::~DateTime()
-{
-
-}
 
 #endif
