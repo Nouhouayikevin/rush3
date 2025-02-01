@@ -85,7 +85,7 @@ std::string CPU ::getGraphicString() const
     std:: string setence = "";
     int i = 0;
     for (auto const & num: cores_usage) {
-        if (i == 7)
+        if (i == 5)
             break;
         setence += "[Core n°" + std::to_string(i) + "..........."+ std::to_string(num) + "%]\n";
         i++;

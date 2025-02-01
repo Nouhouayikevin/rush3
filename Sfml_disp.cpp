@@ -39,8 +39,8 @@ void SFMLDisplay::render(const std::vector<std::unique_ptr<IModule>>& modules)
         window.draw(text);
         yOffset += 250.f;
         if (i == 4) {
-            yOffset = 80.f;
-            xOffset = 400;
+            yOffset = 40.f;
+            xOffset = 475.f;
         }
         if (i == 5)
             break;
