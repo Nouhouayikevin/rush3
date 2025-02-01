@@ -37,10 +37,3 @@ std::string Hostname::getGraphicString() const
     std::string sentence = "The hostname is: " + _hostname + " and the username is: " + _username + "\n";
     return sentence;
 }
-
-int main()
-{
-    Hostname p;
-    p.init();
-    std::cout << p.getDisplayString();
-}
