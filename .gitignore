@@ -5,4 +5,3 @@ coding-style-reports.log
 *vgcore*
 *.gcda
 *.gcno
-main.cpp
