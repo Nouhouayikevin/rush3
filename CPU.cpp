@@ -22,6 +22,7 @@ void CPU :: init()
     }
     }
     frequency = 0.0;
+    cores_usage.clear();
     update();
 }
 
@@ -31,13 +32,11 @@ void CPU   ::update ()
     std::string line;
     std :: string corbeil;
     unsigned long long  user, nice, system, idle, iowait,irq, softirq;
-    unsigned long long idleTime;
-    size_t total;
+    unsigned long long total = 0;
+    unsigned long long idleTime = 0;
 
-    total = 0;
-    idleTime = 0;
     for (int i = 0; i < core; i++) {
-        getline(ifs, line);
+        if (!std::getline(ifs, line)) break;
         std::stringstream ss(line);
         ss >> corbeil;
         ss >> user  >> nice >> system >> idle >> iowait >> irq >> softirq;
@@ -47,16 +46,17 @@ void CPU   ::update ()
     double difftotal = total - last_total;
     double diffidle = idleTime - last_idle;
 
-    if (difftotal != 0) {
-        last_total = total;
-        last_idle = idleTime;
+        if(difftotal > 0){  
+	    	usage=100-(static_cast<double>(diffidle)/difftotal)*100.00;  
+		    cores_usage.push_back(usage);  
+	    } else {  
+	        cores_usage.push_back(100-(static_cast<double>(diffidle)/difftotal)*100.00);  
+	    }
     }
-        if (i == 0) {
-            usage = 100  - ( diffidle / difftotal);
-        } else {
-            cores_usage.push_back(100  - ( diffidle / difftotal));
-        }
-    }
+
+    last_total = total;
+    last_idle = idleTime;
+
     std::ifstream file("/proc/cpuinfo");
 
     while (std::getline(file,line)) {
@@ -64,6 +64,7 @@ void CPU   ::update ()
         if (line.find("cpu MHz") != std::string::npos) {
             line = line.substr(line.find(":") + 1);
             frequency = std ::stod(line);
+            break;
         }
     }
 }
@@ -77,7 +78,7 @@ std::string CPU ::getDisplayString() const
         setence += "[Core n°" + std::to_string(i) + "..........."+ std::to_string(num) + "%]\n";
     }
 
-    return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + "%\n" + setence;
+    return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + " MHz\n" + setence;
 }
 
 std::string CPU ::getGraphicString() const
@@ -90,5 +91,5 @@ std::string CPU ::getGraphicString() const
         setence += "[Core n°" + std::to_string(i) + "..........."+ std::to_string(num) + "%]\n";
         i++;
     }
-    return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + "%\n" + setence;
+    return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + " MHz\n" + setence;
 }
