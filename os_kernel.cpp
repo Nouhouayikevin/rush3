@@ -29,8 +29,8 @@ std::string OsKernel::getDisplayString() const
     std::string s;
     std::string v;
 
-    s = "Operational system: " + _os + "\n";
-    v = "Kernel Version: " + _kernel_version + "\n";
+    s = "Op System: " + _os + "\n";
+    v = "Kernel Vers: " + _kernel_version + "\n";
     return s + v;
 }
 
@@ -39,7 +39,7 @@ std::string OsKernel::getGraphicString() const
     std::string s;
     std::string v;
 
-    s = "Operational system: " + _os + "\n";
-    v = "Kernel Version: " + _kernel_version + "\n";
+    s = "Op System: " + _os + "\n";
+    v = "Kernel Vers: " + _kernel_version + "\n";
     return s + v;
 }
