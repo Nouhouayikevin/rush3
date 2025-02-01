@@ -24,6 +24,7 @@ class Battery :public IModule {
     private:
     int capacity;
     std :: string status;
+    public:
 void init();
 void update();
 std::string getDisplayString() const;

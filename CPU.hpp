@@ -28,6 +28,7 @@ class CPU:public IModule {
     std ::string  model;
     double usage;
     double frequency;
+    public:
 void init();
 void update();
 std::string getDisplayString() const;
