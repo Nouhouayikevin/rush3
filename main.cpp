@@ -13,20 +13,24 @@
 #include "RamModule.hpp"
 #include "os_kernel.hpp"
 #include "CPU.hpp"
+#include <string.h>
 
-int main() {
+int main(int argc, char *argv[]) {
     Monitor m;
     m.addModule(new RamModule());
     m.addModule(new DateTime());
     m.addModule(new Hostname());
     m.addModule(new OsKernel());
     m.addModule(new CPU());
-    //ici choisissez le mode quand vous voudriez afficher soite
-    //Monitor::mydisplayMode::SFML
-    //Monitor::mydisplayMode::NCURSES
-    //noubliez pas de choisir
-
-    m.setDisplay(Monitor::mydisplayMode::NCURSES);
+    
+    if (argc > 1 && strcmp(argv[1], "text") == 0) {
+       m.setDisplay(Monitor::mydisplayMode::NCURSES);
+   } else if (argc > 1 && strcmp(argv[1], "graphical") == 0) {
+       m.setDisplay(Monitor::mydisplayMode::SFML);
+   } else {
+       std::cerr << "Usage: ./MyGKrellm [text|graphical]" << std::endl;
+       return EXIT_FAILURE;
+   }
 
     m.run();
     return 0;

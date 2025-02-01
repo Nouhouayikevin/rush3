@@ -6,11 +6,11 @@
 ##
 
 CXX = g++
-CXXFLAGS =  -fprofile-arcs -ftest-coverage
-CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system -std=c++20 -Wall -Wextra -Werror
+CXXFLAGS =  -fprofile-arcs -ftest-coverage -std=c++20 -Wall -Wextra -Werror
+CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system
 LDFLAGS = -lcriterion
 
-SRC = $(wildcard ex06/*.cpp)
+SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 TEST_SRC = tests/my_tests.cpp
 TEST_OBJ = $(TEST_SRC:.cpp=.o)
@@ -19,8 +19,8 @@ NAME = MyGKrellm
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXLFLAGS) -o $(NAME) *.cpp 
+$(NAME): $(OBJ)
+	$(CXX) $(CXXLFLAGS) $(CXXLFLAGS) -o $(NAME) $(SRC)
 
 clean:
 	find . -type f -name '*.o' -delete
@@ -30,7 +30,7 @@ clean:
 	find . -type f -name 'unit_tests' -delete
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
