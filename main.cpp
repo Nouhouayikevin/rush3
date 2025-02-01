@@ -12,6 +12,7 @@
 #include "DateTime.hpp"
 #include "RamModule.hpp"
 #include "os_kernel.hpp"
+#include "CPU.hpp"
 
 int main() {
     Monitor m;
@@ -19,11 +20,12 @@ int main() {
     m.addModule(new DateTime());
     m.addModule(new Hostname());
     m.addModule(new OsKernel());
-
+    m.addModule(new CPU());
     //ici choisissez le mode quand vous voudriez afficher soite
     //Monitor::mydisplayMode::SFML
     //Monitor::mydisplayMode::NCURSES
     //noubliez pas de choisir
+
     m.setDisplay(Monitor::mydisplayMode::NCURSES);
 
     m.run();
