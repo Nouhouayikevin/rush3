@@ -18,7 +18,7 @@ class SFMLDisplay : public IDisplay
         sf::Font font;
 
     public:
-        SFMLDisplay() : window(sf::VideoMode(800, 600), "MyGKrellm")
+        SFMLDisplay() : window(sf::VideoMode(1920, 1080), "MyGKrellm")
         {
             if (!font.loadFromFile("Shogie.otf")) {
                 throw std::runtime_error("Failed to load font");
