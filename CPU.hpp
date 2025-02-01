@@ -18,10 +18,11 @@
 #include <unistd.h>
 #include <iostream>
 #include <string>
-#define Byte 1024
+#include <vector>
 
 class CPU:public IModule {
     private:
+    std::vector<double> cores_usage;
     size_t last_total;
     size_t last_idle;
     int core;
