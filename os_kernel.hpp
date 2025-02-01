@@ -2,23 +2,21 @@
 ** EPITECH PROJECT, 2024
 ** Piscine
 ** File description:
-** hostname.hpp
+** os_version.hpp
 */
 
 #pragma once
 #include "IModule.hpp"
-#include <sys/types.h>
-#include <pwd.h>
-#include <unistd.h>
+#include <sys/utsname.h>                                             
 
-class Hostname : public IModule
+class OsKernel : public IModule
 {
     private:
-        std::string _hostname;
-        std::string _username;
+        std::string _os;
+        std::string _kernel_version;
     public:
-        Hostname() {};
-        ~Hostname() {};
+        OsKernel() {};
+        ~OsKernel() {};
         void init();
         void update();
         std::string getDisplayString() const;
