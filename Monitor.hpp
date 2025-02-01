@@ -12,6 +12,7 @@
 #include <memory>
 #include <exception>
 #include <unistd.h>
+#include "Sfml_disp.hpp"
 #include "Display_Ncurses.hpp"
 
 class Monitor {
@@ -32,9 +33,9 @@ public:
 
     void setDisplay(mydisplayMode type) {
         if (type == mydisplayMode::NCURSES) {
-            displayMode = std::make_unique< Display_Ncurses>();
+            displayMode = std::make_unique<Display_Ncurses>();
         } else if (type == mydisplayMode::SFML) {
-            //displayMode = std::make_unique<sfmlDisplay>();
+            displayMode = std::make_unique<SFMLDisplay>();
         }
     }
 

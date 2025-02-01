@@ -15,7 +15,6 @@ void CPU :: init()
     while(std::getline(ifs, line)) {
     if (line.find("model name") != std::string::npos) {
     model = line.substr(line.find(":") + 2);
-    std  ::cout << model << std::endl;
     }
     if (line.find("cpu cores") != std::string::npos) {
     line = line.substr(line.find(":") + 2);

@@ -6,8 +6,8 @@
 ##
 
 CXX = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra -Werror -fprofile-arcs -ftest-coverage
-CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system
+CXXFLAGS =  -fprofile-arcs -ftest-coverage
+CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system -std=c++20 -Wall -Wextra -Werror
 LDFLAGS = -lcriterion
 
 SRC = $(wildcard ex06/*.cpp)
@@ -20,7 +20,7 @@ NAME = MyGKrellm
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) *.cpp $(CXXLFLAGS)
+	$(CXX) $(CXXLFLAGS) -o $(NAME) *.cpp 
 
 clean:
 	find . -type f -name '*.o' -delete
@@ -30,6 +30,7 @@ clean:
 	find . -type f -name 'unit_tests' -delete
 
 fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
 
