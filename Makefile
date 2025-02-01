@@ -20,7 +20,7 @@ NAME = MyGKrellm
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS) $(CXXLFLAGS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) *.cpp $(CXXLFLAGS)
 
 clean:
 	find . -type f -name '*.o' -delete
