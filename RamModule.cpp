@@ -11,7 +11,9 @@ void RamModule::init() {update();}
 
 size_t RamModule::getRessources(std::string& value) {
     size_t result;
+    std::string corbeil;
     std::istringstream value_string(value);
+    value_string >> corbeil;
     value_string >>  result;
     return result * BYTES; 
 }
