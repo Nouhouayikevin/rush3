@@ -93,3 +93,8 @@ std::string CPU ::getGraphicString() const
     }
     return "Model name :\n" + model + "\n" + "frequency usage: " + std::to_string(frequency) + " MHz\n" + setence;
 }
+
+std::vector<double> CPU::getCoresUsage() const
+{
+    return cores_usage;
+}

@@ -22,17 +22,18 @@
 
 class CPU:public IModule {
     private:
-    std::vector<double> cores_usage;
-    size_t last_total;
-    size_t last_idle;
-    int core;
-    std ::string  model;
-    double usage;
-    double frequency;
+        std::vector<double> cores_usage;
+        size_t last_total;
+        size_t last_idle;
+        int core;
+        std ::string  model;
+        double usage;
+        double frequency;
     public:
-void init();
-void update();
-std::string getDisplayString() const;
-std::string getGraphicString() const;
+        void init();
+        void update();
+        std::string getDisplayString() const;
+        std::string getGraphicString() const;
+        std::vector<double> getCoresUsage() const;
 };
 #endif

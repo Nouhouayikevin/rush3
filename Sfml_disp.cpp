@@ -38,6 +38,13 @@ void SFMLDisplay::render(const std::vector<std::unique_ptr<IModule>>& modules)
         text.setPosition(xOffset, yOffset);
         window.draw(text);
         yOffset += 250.f;
+        if (i == 5) {
+            const CPU& cpuModule = static_cast<const CPU&>(*module);
+            for (auto const & num: cpuModule.getCoresUsage()) {
+                graph.addPoint(num);
+            }
+            graph.render(window);
+        }
         if (i == 4) {
             yOffset = 40.f;
             xOffset = 475.f;
