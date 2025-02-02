@@ -21,7 +21,7 @@ class Display_Ncurses : public Krell::IDisplay
         ~Display_Ncurses();
         void InitializeNcurses();
         void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules);
-        bool isOpen() const {return !my_switch_mode;};
+        bool isOpen() const {return true;};
 };
 
 #endif

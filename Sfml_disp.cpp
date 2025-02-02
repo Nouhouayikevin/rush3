@@ -22,15 +22,13 @@ void afficher(sf::RenderWindow& window, const sf::Vector2f& pos, const sf::Vecto
 void SFMLDisplay::render(const std::vector<std::unique_ptr<Krell::IModule>>& modules)
 {
     sf::Event event;
-    my_switch_mode = 1;
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             window.close();
         if (event.type == sf::Event::MouseButtonPressed) {
             sf::Vector2i position = sf::Mouse::getPosition();
             if (position.x >= 380 && position.x <= 555
-                && position.y >= 1000 && position.y <= 1062)
-                my_switch_mode = 0;
+                && position.y >= 1000 && position.y <= 1062) {}
         }
     }
     window.clear(sf::Color(20, 20, 20));
