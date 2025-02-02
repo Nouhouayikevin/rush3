@@ -56,7 +56,7 @@ void Display_Ncurses::display_rect(WINDOW* win, const std::string& title, const 
     wrefresh(win);
 }
 
-void Display_Ncurses::render(const std::vector<std::unique_ptr<Krell::IModule>>& modules) {
+void Display_Ncurses::render(const std::vector<std::unique_ptr<Krell::IModule>>& modules, void (Monitor::*setdisplay)(Monitor::mydisplayMode) ) {
     clear();
     int ymax, xmax;
     getmaxyx(stdscr, ymax, xmax);
@@ -64,7 +64,13 @@ void Display_Ncurses::render(const std::vector<std::unique_ptr<Krell::IModule>>&
     int box_width = xmax / 3;
     int box_height = ymax / 8;
     int start_y = 1;           
-    int start_x = xmax / 6;   
+    int start_x = xmax / 6; 
+
+    nodelay(stdscr, TRUE);
+    int ch;
+        ch = getch();
+        if (ch == 27)
+            (setdisplay)(Monitor::mydisplayMode::SFML);
 
     for (size_t i = 0; i < modules.size(); ++i) {
         WINDOW* win = newwin(box_height, box_width, start_y + i * (box_height + 1), start_x);

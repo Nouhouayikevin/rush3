@@ -43,5 +43,5 @@ class SFMLDisplay : public Krell::IDisplay
             }
         }
         bool isOpen() const { return window.isOpen(); }
-        void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules);
+        void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules,  void (*setdisplay)(Monitor::mydisplayMode) );
 };

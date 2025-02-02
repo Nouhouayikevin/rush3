@@ -20,7 +20,7 @@ class Display_Ncurses : public Krell::IDisplay
         Display_Ncurses();
         ~Display_Ncurses();
         void InitializeNcurses();
-        void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules);
+        void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules, void (Monitor::*setdisplay)(Monitor::mydisplayMode) );
         bool isOpen() const {return true;};
 };
 

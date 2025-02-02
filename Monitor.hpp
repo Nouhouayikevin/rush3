@@ -43,7 +43,7 @@ public:
             for (const auto& module: AllModules) {
                 module->update();
             }
-            displayMode->render(AllModules);
+            displayMode->render(AllModules, &setDisplay);
             usleep(1000);
         }
     }
