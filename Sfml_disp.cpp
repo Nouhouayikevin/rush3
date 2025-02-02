@@ -19,7 +19,7 @@ void afficher(sf::RenderWindow& window, const sf::Vector2f& pos, const sf::Vecto
     window.draw(obj);
 }
 
-void SFMLDisplay::render(const std::vector<std::unique_ptr<IModule>>& modules)
+void SFMLDisplay::render(const std::vector<std::unique_ptr<Krell::IModule>>& modules)
 {
     sf::Event event;
     while (window.pollEvent(event)) {

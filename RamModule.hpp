@@ -6,14 +6,14 @@
 */
 
 #pragma once
-#include "IModule.hpp"
+#include "Krell.hpp"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #define BYTES 1024
 #define MBYTES BYTES * BYTES
 
-class RamModule: public IModule {
+class RamModule: public Krell::IModule {
 private:
     size_t _memTotal;
     size_t _memFree;

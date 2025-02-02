@@ -6,12 +6,12 @@
 */
 
 #pragma once
-#include "IModule.hpp"
+#include "Krell.hpp"
 #include <sys/types.h>
 #include <pwd.h>
 #include <unistd.h>
 
-class Hostname : public IModule
+class Hostname : public Krell::IModule
 {
     private:
         std::string _hostname;

@@ -7,7 +7,7 @@
 
 #ifndef   ICPU_H
     #define ICPU_H
-#include "IModule.hpp"
+#include "Krell.hpp"
 #include <cstddef>
 #include <fstream>
 #include <iostream>
@@ -20,7 +20,8 @@
 #include <string>
 #include <vector>
 
-class CPU:public IModule {
+class CPU:public Krell::IModule
+{
     private:
         std::vector<double> cores_usage;
         size_t last_total;

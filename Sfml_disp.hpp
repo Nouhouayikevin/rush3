@@ -7,7 +7,7 @@
 
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "IDisplay.hpp"
+#include "Krell.hpp"
 #include "CPU.hpp"
 #include <sstream>
 #include <vector>
@@ -28,12 +28,12 @@ class Graph
 
 };
 
-class SFMLDisplay : public IDisplay
+class SFMLDisplay : public Krell::IDisplay
 {
     private:
         sf::RenderWindow window;
         sf::Font font;
-        Graph graph{980.f, 150.f, 400.f, 580.f, 100.f};
+        Graph graph{980.f, 150.f, 400.f, 580.f, 200.f};
 
     public:
         SFMLDisplay() : window(sf::VideoMode(1920, 1080), "MyGKrellm")
@@ -43,5 +43,5 @@ class SFMLDisplay : public IDisplay
             }
         }
         bool isOpen() const { return window.isOpen(); }
-        void render(const std::vector<std::unique_ptr<IModule>>& modules);
+        void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules);
 };

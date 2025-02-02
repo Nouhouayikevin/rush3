@@ -7,7 +7,7 @@
 
 #ifndef   IBAT_H
     #define IBAT_H
-#include "IModule.hpp"
+#include "Krell.hpp"
 #include <cstddef>
 #include <fstream>
 #include <iostream>
@@ -20,14 +20,15 @@
 #include <string>
 #define Byte 1024
 
-class Battery :public IModule {
+class Battery : public Krell::IModule
+{
     private:
-    int capacity;
-    std :: string status;
+        int capacity;
+        std :: string status;
     public:
-void init();
-void update();
-std::string getDisplayString() const;
-std::string getGraphicString() const;
+        void init();
+        void update();
+        std::string getDisplayString() const;
+        std::string getGraphicString() const;
 };
 #endif

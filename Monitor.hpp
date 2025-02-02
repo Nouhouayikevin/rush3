@@ -5,8 +5,7 @@
 ** c++
 */
 #pragma once
-#include "IModule.hpp"
-#include "IDisplay.hpp"
+#include "Krell.hpp"
 #include <vector>
 #include <string>
 #include <memory>
@@ -20,14 +19,14 @@ public:
     enum mydisplayMode { NCURSES, SFML };
 
 private:
-    std::vector<std::unique_ptr<IModule>> AllModules;
-    std::unique_ptr<IDisplay> displayMode;
+    std::vector<std::unique_ptr<Krell::IModule>> AllModules;
+    std::unique_ptr<Krell::IDisplay> displayMode;
 
 public:
-    void addModule(IModule *module) {
+    void addModule(Krell::IModule *module) {
         if (module) {
             module->init();
-            AllModules.push_back(std::move(std::unique_ptr<IModule>(module)));
+            AllModules.push_back(std::move(std::unique_ptr<Krell::IModule>(module)));
         }
     }
 

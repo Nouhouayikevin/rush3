@@ -9,9 +9,9 @@
 #define __NCURSES_DISPLAY__
 #include <ncurses.h>
 #include <vector>
-#include "IDisplay.hpp"
+#include "Krell.hpp"
 
-class Display_Ncurses : public IDisplay
+class Display_Ncurses : public Krell::IDisplay
 {
     private:
         void display_rect(WINDOW* win, const std::string& title, const std::string& content, int colorPair);
@@ -20,7 +20,7 @@ class Display_Ncurses : public IDisplay
         Display_Ncurses();
         ~Display_Ncurses();
         void InitializeNcurses();
-        void render(const std::vector<std::unique_ptr<IModule>>& modules);
+        void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules);
         bool isOpen() const {return true;};
 };
 

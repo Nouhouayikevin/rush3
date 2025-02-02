@@ -6,10 +6,10 @@
 */
 
 #pragma once
-#include "IModule.hpp"
+#include "Krell.hpp"
 #include <sys/utsname.h>                                             
 
-class OsKernel : public IModule
+class OsKernel : public Krell::IModule
 {
     private:
         std::string _os;

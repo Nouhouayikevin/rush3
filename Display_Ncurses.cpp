@@ -5,11 +5,7 @@
 ** File description:
 ** hostname.cpp
 */
-
-#include "Display_Ncurses.hpp"
-#include "CPU.hpp"
-#include <string>
-
+#include "Krell.hpp"
 #include "Display_Ncurses.hpp"
 #include "CPU.hpp"
 #include <string>
@@ -60,7 +56,7 @@ void Display_Ncurses::display_rect(WINDOW* win, const std::string& title, const 
     wrefresh(win);
 }
 
-void Display_Ncurses::render(const std::vector<std::unique_ptr<IModule>>& modules) {
+void Display_Ncurses::render(const std::vector<std::unique_ptr<Krell::IModule>>& modules) {
     clear();
     int ymax, xmax;
     getmaxyx(stdscr, ymax, xmax);

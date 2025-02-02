@@ -3,23 +3,19 @@
 
 #include <iostream>
 #include <ctime>
-#include "IModule.hpp"
+#include "Krell.hpp"
 
-class DateTime: public IModule
+class DateTime: public Krell::IModule
 {
-
-private:
-
-    std::string currentTime;
-
-public:
-    DateTime(){};
-    ~DateTime(){};
-    void init() ;
-    void update() ;
-    std::string getDisplayString() const ;
-    std::string getGraphicString() const ;
-
+    private:
+        std::string currentTime;
+    public:
+        DateTime(){};
+        ~DateTime(){};
+        void init() ;
+        void update() ;
+        std::string getDisplayString() const ;
+        std::string getGraphicString() const ;
 };
 
 #endif
