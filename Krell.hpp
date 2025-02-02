@@ -12,7 +12,6 @@
 #include <memory>
 #include <exception>
 #include <unistd.h>
-#include "Monitor.hpp"
 
 namespace Krell
 {
@@ -30,7 +29,7 @@ namespace Krell
     class IDisplay {
     public:
         virtual ~IDisplay() = default;
-        virtual void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules, void (Monitor::*setdisplay)(Monitor::mydisplayMode) ) = 0;
+        virtual void render(const std::vector<std::unique_ptr<Krell::IModule>>& modules) = 0;
         virtual bool isOpen() const = 0;
     };
 }
