@@ -5,7 +5,7 @@
 ** os_version.cpp
 */
 
-#include "os_kernel.hpp"
+#include "../include/os_kernel.hpp"
 
 void OsKernel::init()
 {

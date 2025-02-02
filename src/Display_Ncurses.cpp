@@ -5,9 +5,9 @@
 ** File description:
 ** hostname.cpp
 */
-#include "Krell.hpp"
-#include "Display_Ncurses.hpp"
-#include "CPU.hpp"
+#include "../include/Krell.hpp"
+#include "../include/Display_Ncurses.hpp"
+#include "../include/CPU.hpp"
 #include <string>
 #include <unistd.h> 
 

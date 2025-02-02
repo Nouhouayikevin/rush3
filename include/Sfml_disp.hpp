@@ -38,7 +38,7 @@ class SFMLDisplay : public Krell::IDisplay
     public:
         SFMLDisplay() : window(sf::VideoMode(1920, 1080), "MyGKrellm")
         {
-            if (!font.loadFromFile("Shogie.otf")) {
+            if (!font.loadFromFile("font/Shogie.otf")) {
                 throw std::runtime_error("Failed to load font");
             }
         }

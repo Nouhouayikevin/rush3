@@ -5,7 +5,7 @@
 ** c++
 */
 
-#include "CPU.hpp"
+#include "../include/CPU.hpp"
 
 void CPU :: init()
 {

@@ -10,7 +10,7 @@ CFLAGS = -g3 -fprofile-arcs -ftest-coverage -std=c++20 -Wall -Wextra -Werror
 CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system
 LDFLAGS = -lcriterion
 
-SRC = $(wildcard *.cpp)
+SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
 TEST_SRC = tests/my_tests.cpp
 TEST_OBJ = $(TEST_SRC:.cpp=.o)

@@ -5,7 +5,7 @@
 ** c++
 */
 
-#include "RamModule.hpp"
+#include "../include/RamModule.hpp"
 
 void RamModule::init() {update();}
 

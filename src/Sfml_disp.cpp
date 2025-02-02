@@ -5,13 +5,13 @@
 ** Sfml_disp.cpp
 */
 
-#include "Sfml_disp.hpp"
+#include "../include/Sfml_disp.hpp"
 
 void afficher(sf::RenderWindow& window, const sf::Vector2f& pos, const sf::Vector2f& scale)
 {
     sf::Sprite obj;
     sf::Texture text;
-    if (!text.loadFromFile("fond.jpg"))
+    if (!text.loadFromFile("image/fond.jpg"))
         return;
     obj.setPosition(pos);
     obj.setTexture(text);

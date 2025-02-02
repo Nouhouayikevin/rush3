@@ -5,7 +5,7 @@
 ** hostname.cpp
 */
 
-#include "hostname.hpp"
+#include "../include/hostname.hpp"
 
 void Hostname::init()
 {

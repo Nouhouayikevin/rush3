@@ -4,16 +4,16 @@
 ** File description:
 ** c++
 */
-#include "RamModule.hpp"
-#include "Monitor.hpp"
+#include "../include/RamModule.hpp"
+#include "../include/Monitor.hpp"
 #include <iostream>
-#include "Monitor.hpp"
-#include "hostname.hpp"
-#include "DateTime.hpp"
-#include "RamModule.hpp"
-#include "os_kernel.hpp"
-#include "CPU.hpp"
-#include "Battery.hpp"
+#include "../include/Monitor.hpp"
+#include "../include/hostname.hpp"
+#include "../include/DateTime.hpp"
+#include "../include/RamModule.hpp"
+#include "../include/os_kernel.hpp"
+#include "../include/CPU.hpp"
+#include "../include/Battery.hpp"
 #include <string.h>
 
 int main(int argc, char *argv[]) {

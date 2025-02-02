@@ -5,7 +5,7 @@
 ** Graphe.cpp
 */
 
-#include "Sfml_disp.hpp"
+#include "../include/Sfml_disp.hpp"
 
 void Graph::addPoint(float value)
 {
