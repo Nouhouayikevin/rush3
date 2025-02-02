@@ -6,7 +6,7 @@
 ##
 
 CXX = g++
-CXXFLAGS =  -fprofile-arcs -ftest-coverage -std=c++20 -Wall -Wextra -Werror
+CFLAGS = -g3 -fprofile-arcs -ftest-coverage -std=c++20 -Wall -Wextra -Werror
 CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system
 LDFLAGS = -lcriterion
 
@@ -20,7 +20,7 @@ NAME = MyGKrellm
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXLFLAGS) $(CXXLFLAGS) -o $(NAME) $(SRC)
+	$(CXX) $(CFLAGS) $(CXXLFLAGS) -o $(NAME) $(SRC)
 
 clean:
 	find . -type f -name '*.o' -delete
@@ -37,7 +37,7 @@ fclean: clean
 re: fclean all
 
 tests_run: $(TEST_OBJ) $(filter-out main.o, $(OBJ))
-	$(CXX) $(CXXFLAGS) -o unit_tests $^ $(LDFLAGS)
+	$(CXX) $(CFLAGS) -o unit_tests $^ $(LDFLAGS)
 	./unit_tests; find . -type f -name '*.txt' -delete
 
 coverage:

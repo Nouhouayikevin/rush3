@@ -52,3 +52,5 @@ std::string RamModule::getGraphicString() const {
             "Buffers: " + std::to_string(_buffers / MBYTES) + " MB\n" +
             "Cached: " + std::to_string(_cached / MBYTES) + " MB\n";
 }
+
+
