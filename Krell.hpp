@@ -12,6 +12,7 @@
 #include <memory>
 #include <exception>
 #include <unistd.h>
+extern int my_switch_mode;
 
 namespace Krell
 {
