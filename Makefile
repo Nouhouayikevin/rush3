@@ -6,21 +6,33 @@
 ##
 
 CXX = g++
-CFLAGS = -g3 -fprofile-arcs -ftest-coverage -std=c++20 -Wall -Wextra -Werror
-CXXLFLAGS = -lncurses -lsfml-graphics -lsfml-window -lsfml-system
-LDFLAGS = -lcriterion
+CFLAGS = -g3 -fprofile-arcs -ftest-coverage -std=c++20 -Wall -Wextra
+LIBFLAGS = -lncursesw -lsfml-graphics -lsfml-window -lsfml-system
+TESTS_FLAGS = -lcriterion
+INCLUDES = -I/usr/include
+ALL_TESTS_FLAGS = $(CFLAGS) $(TEST_OBJ) $(TESTS_FLAGS) $(LIBFLAGS) $(INCLUDES)
 
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
 TEST_SRC = tests/my_tests.cpp
 TEST_OBJ = $(TEST_SRC:.cpp=.o)
-NAME = MyGKrellm
 
+NAME = MyGKrellm
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CFLAGS) $(CXXLFLAGS) -o $(NAME) $(SRC)
+	$(CXX) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFLAGS) $(INCLUDES)
+
+%.o: src/%.cpp
+	$(CXX) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+
+tests_run: $(TEST_OBJ) $(filter-out main.o, $(OBJ))
+	$(CXX) $(ALL_TESTS_FLAGS) -o unit_tests
+	./unit_tests; find . -type f -name '*.txt' -delete
+
+coverage:
+	gcovr --exclude tests/
 
 clean:
 	find . -type f -name '*.o' -delete
@@ -33,12 +45,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f unit_tests
 
 re: fclean all
-
-tests_run: $(TEST_OBJ) $(filter-out main.o, $(OBJ))
-	$(CXX) $(CFLAGS) -o unit_tests $^ $(LDFLAGS)
-	./unit_tests; find . -type f -name '*.txt' -delete
-
-coverage:
-	gcovr --exclude tests/
